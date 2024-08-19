@@ -1,0 +1,65 @@
+# Carpeta de archivos generados por Visual Studio
+.vs/
+
+# Carpetas y archivos generados por el compilador de C# y .NET
+bin/
+obj/
+
+# Archivos de configuración específicos de Visual Studio
+*.suo
+*.user
+*.sln.docstates
+
+# Archivos de logs y archivos temporales
+*.log
+*.tmp
+
+# Archivos de compilación de .NET
+*.exe
+*.dll
+
+# Carpeta de paquetes NuGet
+packages/
+
+# Carpeta de caché de herramientas de .NET
+.vscode/
+
+# Archivos de caché de ReSharper
+_ReSharper*/
+
+# Dependencias de Node.js (si estás usando front-end en Node.js)
+node_modules/
+
+# Dependencias de npm (si estás usando front-end en npm)
+npm-debug.log
+
+# Archivos de caché y configuración de Visual Studio Code (opcional, para VS Code)
+.vscode/
+
+# Archivos locales de configuración que no deben estar bajo control de versiones
+appsettings.json
+*.env
+
+# Archivos de logs específicos de .NET Core
+*.log
+
+# Archivos de respaldo de .NET Core
+*.bak
+
+# Archivo de bloqueo de dependencias de .NET Core
+project.lock.json
+
+# Resultados de ejecución de pruebas
+*.trx
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj
