@@ -19,5 +19,7 @@ namespace Bar.Domain.Entities
         {
             return $"{FirstName} {LastName}";
         }
+
+        //TODO: Crear propiedad de fecha de nacimiento para saber la edad
     }
 }
