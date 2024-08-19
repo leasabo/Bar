@@ -1,7 +1,16 @@
+using Bar.Infraestructure.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Conexión a la BBDD
+var connectionString = builder.Configuration.GetConnectionString("Connection");
+builder.Services.AddDbContext<AppDbContext>(
+    options => options.UseSqlServer(connectionString)
+);
 
 var app = builder.Build();
 
