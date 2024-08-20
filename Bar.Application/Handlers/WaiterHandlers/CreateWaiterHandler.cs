@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using FluentValidation;
+using MediatR;
+using Bar.Domain.Entities;
+using Bar.Domain.Interfaces;
 
 namespace Bar.Application.Handlers.WaiterHandlers
 {
