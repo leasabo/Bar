@@ -11,13 +11,29 @@ namespace Bar.Web.Controllers
             _db = db;
         }
 
-        //NOTE: una interfaz es una abstracción flexible y útil
-        // que permite a los controladores devolver varios tipos de resultados
-        public IActionResult Index()
+    [ApiController]
+        [Route("api/[controller]")]
+        public class WaitersController : ControllerBase
         {
-            return View();
+            private readonly IMediator _mediator;
+
+            public WaitersController(IMediator mediator)
+            {
+                _mediator = mediator;
+            }
+
+            [HttpPost]
+            public async Task<IActionResult> CreateWaiter(CreateWaiterCommand command)
+            {
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+
+            [HttpGet]
+            public async Task<IActionResult> GetWaiters()
+            {
+                //TODO: Completar
+                return Ok(); // Placeholder
+            }
         }
-        //NOTE: Interfaz en NetCore: tipo de contrato que define
-        // un conjunto de miembros (métodos, propiedades, eventos)
-    }
 }
