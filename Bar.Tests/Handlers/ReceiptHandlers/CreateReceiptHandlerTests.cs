@@ -6,6 +6,8 @@ using NSubstitute;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
+using Bar.Domain.Interfaces;
+using AutoMapper;
 
 namespace Bar.Tests.Handlers.ReceiptHandlers
 {

@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Bar.Application.Commands;
 
 namespace Bar.Web.Controllers
 {

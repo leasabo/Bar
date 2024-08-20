@@ -1,5 +1,7 @@
-﻿using Bar.Application.Handlers.TableHandlers;
+﻿using AutoMapper;
+using Bar.Application.Handlers.TableHandlers;
 using Bar.Domain.Entities;
+using Bar.Domain.Interfaces;
 using Bar.Infraestructure.Repositories;
 using FluentAssertions;
 using NSubstitute;

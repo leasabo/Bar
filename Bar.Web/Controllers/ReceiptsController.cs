@@ -1,6 +1,8 @@
 ﻿using Bar.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using MediatR;
+using Bar.Application.Commands;
 
 namespace Bar.Web.Controllers
 {

@@ -1,40 +1,33 @@
 ﻿using Bar.Infraestructure.Context;
 using Microsoft.AspNetCore.Mvc;
+using MediatR;
+using Bar.Application.Commands;
 
 namespace Bar.Web.Controllers
 {
-    public class WaitersController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class WaitersController : ControllerBase
     {
-        private readonly AppDbContext _db;
-        public WaiterController(AppDbContext db)
+        private readonly IMediator _mediator;
+
+        public WaitersController(IMediator mediator)
         {
-            _db = db;
+            _mediator = mediator;
         }
 
-        [ApiController]
-        [Route("api/[controller]")]
-        public class WaitersController : ControllerBase
+        [HttpPost]
+        public async Task<IActionResult> CreateWaiter(CreateWaiterCommand command)
         {
-            private readonly IMediator _mediator;
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
 
-            public WaitersController(IMediator mediator)
-            {
-                _mediator = mediator;
-            }
-
-            [HttpPost]
-            public async Task<IActionResult> CreateWaiter(CreateWaiterCommand command)
-            {
-                var result = await _mediator.Send(command);
-                return Ok(result);
-            }
-
-            [HttpGet]
-            public async Task<IActionResult> GetWaiters()
-            {
-                //TODO: Completar
-                return Ok(); // Placeholder
-            }
+        [HttpGet]
+        public async Task<IActionResult> GetWaiters()
+        {
+            // TODO: Completar
+            return Ok(); // Placeholder
         }
     }
 }
