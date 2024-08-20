@@ -4,14 +4,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Bar.Infraestructure.Context;
 using AutoMapper;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Agregar servicios al contenedor.
 builder.Services.AddControllersWithViews();
 
+// Agregar Swagger
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Bar API", Version = "v1" });
+});
+
 // Registrar AutoMapper
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(Program));
 
 // Conexión a la BBDD
 var connectionString = builder.Configuration.GetConnectionString("Connection");
@@ -28,7 +36,7 @@ builder.Services.AddScoped<IReceiptRepository, ReceiptRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline de solicitudes HTTP.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -42,8 +50,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+// Agregar Swagger al pipeline de solicitudes
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bar API V1");
+    c.RoutePrefix = string.Empty; // Esto hace que Swagger UI esté en la raíz
+});
 
 app.Run();
