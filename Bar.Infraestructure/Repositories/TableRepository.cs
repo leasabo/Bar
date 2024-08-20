@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bar.Domain.Entities;
 using Bar.Infraestructure.Context;
 using Microsoft.EntityFrameworkCore;
 
