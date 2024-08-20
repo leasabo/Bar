@@ -1,12 +1,7 @@
-using Bar.Application.Handlers.WaiterHandlers;
-using Bar.Application.Handlers.TableHandlers;
-using Bar.Application.Handlers.ReceiptHandlers;
 using Bar.Infraestructure.Repositories;
-using Bar.Infrastructure.Data;
-using MediatR;
+using Bar.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-
 using Bar.Infraestructure.Context;
 using Microsoft.EntityFrameworkCore;
 
