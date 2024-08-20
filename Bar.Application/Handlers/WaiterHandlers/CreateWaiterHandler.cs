@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using AutoMapper;
-using Core.Entities;
-using Core.Repositories;
-using FluentValidation;
-using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace Bar.Application.Handlers.WaiterHandlers
 {
