@@ -11,7 +11,7 @@ namespace Bar.Web.Controllers
             _db = db;
         }
 
-    [ApiController]
+        [ApiController]
         [Route("api/[controller]")]
         public class WaitersController : ControllerBase
         {
@@ -36,4 +36,5 @@ namespace Bar.Web.Controllers
                 return Ok(); // Placeholder
             }
         }
+    }
 }
