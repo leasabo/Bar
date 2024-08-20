@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Bar.Domain.Entities;
 using Bar.Infraestructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Bar.Domain.Interfaces;
 
 namespace Bar.Infraestructure.Repositories
 {
