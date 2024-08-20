@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bar.Web.Controllers
 {
-    public class WaiterController : Controller
+    public class WaitersController : Controller
     {
         private readonly AppDbContext _db;
         public WaiterController(AppDbContext db)

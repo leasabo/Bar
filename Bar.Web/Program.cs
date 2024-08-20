@@ -1,3 +1,12 @@
+using Bar.Application.Handlers.WaiterHandlers;
+using Bar.Application.Handlers.TableHandlers;
+using Bar.Application.Handlers.ReceiptHandlers;
+using Bar.Infraestructure.Repositories;
+using Bar.Infrastructure.Data;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+
 using Bar.Infraestructure.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Registrarr AutoMapper
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Conexión a la BBDD
 var connectionString = builder.Configuration.GetConnectionString("Connection");
@@ -18,6 +27,11 @@ var connectionString = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(connectionString)
 );
+
+// Registrar Repositorios
+builder.Services.AddScoped<IWaiterRepository, WaiterRepository>();
+builder.Services.AddScoped<ITableRepository, TableRepository>();
+builder.Services.AddScoped<IReceiptRepository, ReceiptRepository>();
 
 
 var app = builder.Build();
